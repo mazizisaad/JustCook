@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search Menu</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Ingredient</ion-item-divider>
+        <ion-item>
+          <ion-label floating>Ingredient</ion-label>
+          <ion-input type="text" [(ngModel)]="ingredient1"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Ingredient</ion-label>
+          <ion-input type="text" [(ngModel)]="ingredient2"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Ingredient</ion-label>
+          <ion-input type="text" [(ngModel)]="ingredient3"></ion-input>
+        </ion-item>
+        <br>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider color="light">Filter</ion-item-divider>
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select [(ngModel)]="type">
+          <ion-option value="Breakfast">Breakfast</ion-option>
+          <ion-option value="Tea Break">Tea Break</ion-option>
+          <ion-option value="Lunch">Lunch</ion-option>
+          <ion-option value="High Tea">High Tea</ion-option>
+          <ion-option value="Dinner">Dinner</ion-option>
+          <ion-option value="Supper">Supper</ion-option>
+          <ion-option value="Snack/ Party">Snack/ Party</ion-option>
+          <ion-option value="Beverages">Beverages</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="category">
+          <ion-option value="Western">Western</ion-option>
+          <ion-option value="Malaysia">Malaysia</ion-option>
+          <ion-option value="Asia Cursine">Asia Cursine</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+    <div text-center>
+      <button ion-button color="danger" (click)="clear()">Clear</button>
+      <button ion-button color="primary" (click)="goSearch()">Search</button>
+    </div>
+  </ion-list>
+</ion-content>

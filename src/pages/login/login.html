@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card padding>
+    <img src='https://firebasestorage.googleapis.com/v0/b/justcook-69d9f.appspot.com/o/JustCook.png?alt=media&token=3be327a4-8cad-42c5-ad58-1af4313ebacd'>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br>
+      <div>
+        <button ion-button block color="primary" (click)="login()">Login</button>
+        <button ion-button block color="danger" (click)="goSignup()">Signup</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <div text-center>
+    <button ion-button clear color="dark" (click)="goForgetPassword()">Forget Password?</button>
+  </div>
+</ion-content>

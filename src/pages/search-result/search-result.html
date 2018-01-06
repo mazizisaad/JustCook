@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search Result</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-list no-lines>
+    <ion-item *ngIf="noResult">
+      No result found
+    </ion-item>
+    <ion-item *ngIf="!noResult">
+      <ion-card *ngFor="let item of items" padding>
+        <div (click)="reveal(item.menuID)">
+          <img src="{{ item.menuPhoto }}">
+          <ion-card-title>
+            {{ item.menuName }}
+          </ion-card-title>
+          <ion-card-content>
+              <b>Serving Menu:</b> {{ item.menuServing }}
+              <br>
+              <b>Duration:</b> {{ item.menuDuration }}
+              <br>
+              <b>Type/ Category:</b> {{ item.menuType }} /{{ item.menuCategory }}
+          </ion-card-content>
+        </div>
+        <div text-center>
+          <button ion-button block color="primary" (click)="addMyFav(item.menuID)">Add to MyFav</button>
+        </div>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

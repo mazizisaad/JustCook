@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Recipe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let key of menus" no-lines>
+    <ion-item>
+      <img src="{{ key.menuPhoto }}">
+    </ion-item>
+
+    <ion-item-group>
+      <ion-item-divider color="light">Menu Details</ion-item-divider>
+      <ion-item>
+        Category: {{ key.menuCategory }}<br>
+        Type: {{ key.menuType }}<br>
+        Duration: {{ key.menuDuration }}<br>
+        Serving: {{ key.menuServing }}
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider color="light">Menu Details</ion-item-divider>
+      <ion-item>
+        <ion-grid>
+          <ion-row *ngFor="let list of lists; let i = index">
+            <ion-col col-6>
+              {{ ingredient[i] }}
+            </ion-col>
+            <ion-col col-3>
+              {{ quantity[i] }}
+            </ion-col>
+            <ion-col col-3>
+              {{ unit[i] }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider color="light">Menu Details</ion-item-divider>
+      <ion-item>
+        <ion-textarea value="{{ key.menuStep }}" readonly></ion-textarea>
+      </ion-item>
+    </ion-item-group>
+    <br>
+    <div>
+      <button ion-button block color="primary" (click)="share(key.menuName, key.menuPhoto)">Share</button>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Manage My Menu</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="goCreate()">Create</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let key of myMenus" padding>
+    <img src="{{ key.menuPhoto }}">
+    <br>
+    <ion-card-title>
+      {{ key.menuName }}
+    </ion-card-title>
+    <ion-card-content>
+      Type: {{ key.menuType }} <br>
+      Category: {{ key.menuCategory }} <br>
+      Number of Serving: {{ key.menuServing }}
+    </ion-card-content>
+    <div text-right padding>
+      <button ion-button color="danger" (click)="deleteMenu(key.menuID)">Delete</button>
+      <button ion-button color="light" (click)="editMenu(key.menuID)">Edit</button>
+    </div>
+  </ion-card>
+</ion-content>

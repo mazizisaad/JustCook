@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create Menu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-item text-center (click)="selectPhoto()">
+      <img src="{{ menu.photo }}">
+    </ion-item>
+    <br>
+    <ion-item-group>
+      <ion-item-divider color="light">Menu Details</ion-item-divider>
+      <ion-item>
+        <ion-label floating>Menu Name</ion-label>
+        <ion-input type="text" [(ngModel)]="menu.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Serving Number</ion-label>
+        <ion-input type="number" [(ngModel)]="menu.serving"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Duration</ion-label>
+        <ion-datetime displayFormat="HH : mm" pickerFormat="HH mm" [(ngModel)]="menu.duration"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Menu Type</ion-label>
+        <ion-select [(ngModel)]="menu.type">
+          <ion-option value="Breakfast">Breakfast</ion-option>
+          <ion-option value="Tea Break">Tea Break</ion-option>
+          <ion-option value="Lunch">Lunch</ion-option>
+          <ion-option value="Hi Tea">High Tea</ion-option>
+          <ion-option value="Dinner">Dinner</ion-option>
+          <ion-option value="Supper">Supper</ion-option>
+          <ion-option value="Snack/ Party">Snack/ Party</ion-option>
+          <ion-option value="Beverages">Beverages</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Menu Category</ion-label>
+        <ion-select [(ngModel)]="menu.category">
+          <ion-option value="Western Cuisine">Western Cuisine</ion-option>
+          <ion-option value="Malaysia Cuisine">Malaysia Cuisine</ion-option>
+          <ion-option value="Asia Cuisine">Asia Cuisine</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+    
+    <ion-item-group>
+      <ion-item-divider color="light">Menu Ingredient</ion-item-divider>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-10>
+              
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button outline color="dark" (click)="addInput()">
+                <ion-icon name="add-circle"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+  
+      <ion-item *ngFor="let list of lists; let i = index">
+        <ion-input type="text" placeholder="Ingredient.." [(ngModel)]="ing[i]"></ion-input>
+        
+        <ion-input type="number" placeholder="Quantity..." [(ngModel)]="qty[i]"></ion-input>
+  
+        <ion-select [(ngModel)]="unit[i]">
+          <ion-option value="gram">gram</ion-option>
+          <ion-option value="liter">liter</ion-option>
+          <ion-option value="spoon">spoon</ion-option>
+          <ion-option value="tea spoon">tea spoon</ion-option>
+          <ion-option value="piece">piece</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider color="light">Menu Step</ion-item-divider>
+      <ion-item>
+        <ion-label floating>Menu Step</ion-label>
+        <ion-textarea [(ngModel)]="menu.step" autosize></ion-textarea>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <div text-center>
+    <button ion-button color="primary" (click)="create()">Create</button>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MyFav</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list padding>
+    <ion-item *ngFor="let key of menus" (click)="goDisplay(key.menuID)">
+      <ion-thumbnail item-start>
+        <img src="{{ key.menuPhoto }}">
+      </ion-thumbnail>
+      <h2>{{ key.menuName }}</h2>
+      <p>
+        Type: {{ key.menuType }} <br>
+        Category: {{ key.menuCategory }}
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>

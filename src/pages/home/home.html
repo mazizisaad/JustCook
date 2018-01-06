@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchModal()">
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 id="search">
+        <ion-input type="text" [(ngModel)]="searchKey" placeholder="Search menu..."></ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button (click)="searchItem(searchKey)"><ion-icon name="search"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card padding>
+    <img src="{{ details.photoURL }}">
+    <ion-card-title>
+      Hi {{ details.displayName }}
+    </ion-card-title>
+ </ion-card>
+ <br>
+ <ion-item-group>
+   <ion-item-divider color="light">Tips for today</ion-item-divider>
+   <ion-item>
+    <img src="https://firebasestorage.googleapis.com/v0/b/justcook-69d9f.appspot.com/o/dummie.jpg?alt=media&token=c9cc85c0-0b51-46ba-bf07-139471d5745d">
+   </ion-item>
+ </ion-item-group>
+</ion-content>
